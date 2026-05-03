@@ -24,7 +24,6 @@ public class ReportNode {
         this.next = next;
     }
 
-    @Override
     public String toString() {
         if (this.data == null) return "ReportNode[empty]";
         return "ReportNode[" + this.data.getTitle() + "]";

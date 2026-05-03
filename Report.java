@@ -7,7 +7,8 @@ public class Report {
 	private String excerpt;
 	private int readTimeMinutes;
 	
-	public Report(String Author, String category, String[] tags, String date, String excerpt, int readTimeMinutes) {
+	public Report(String title, String Author, String category, String[] tags, String date, String excerpt, int readTimeMinutes) {
+		this.title = title;
 		this.author = Author;
 		this.category = category;
 		this.tags = tags;
@@ -45,7 +46,7 @@ public class Report {
 	}
 	
 	public String toString() {
-		return "";
+		return "[" + date + "] " + title + " — " + author + " (" + category + ") " + readTimeMinutes + " min";
 	}
 	
 	public int compareByDate(Report other) {

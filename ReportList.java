@@ -14,62 +14,76 @@ public class ReportList {
 	}
 	
 	public void printAll() {
-		ReportNode node = head;
-		if (node == null) {
-			System.out.println("No reports");
+		ReportNode current = head;
+		if (current == null) {
+			System.out.println("No reports found.");
+			return;
 		}
-		while (node != null) {
-			System.out.println(node.getData());
-			node = node.getNext();
-		}
-	}
-	
-	public boolean titleExists(String title) {
-		ReportNode node = head;	
-		if (node == null) return false;
-		while (node.getNext() != null) {
-			if (node.getData().getTitle() == title) {
-				return true;
-			}
-		}
-//		While loop stops at last node
-		if (node.getData().getTitle() == title) {
-			return true;
-		}
-		
-		else {
-			return false;
+		while (current != null) {
+			System.out.println(current.getData());
+			current = current.getNext();
 		}
 	}
 	
 	public Report findByTitle(String title) {
-		ReportNode node = head;	
-		if (node == null) return null;
-		while (node.getNext() != null) {
-			if (node.getData().getTitle() == title) {
-				return node.getData();
-			}
-		}
-//		While loop stops at last node
-		if (node.getData().getTitle() == title) {
-			return node.getData();
-		}
-		
-		return null;
+    	ReportNode current = head;
+    	while (current != null) {
+        	if (current.getData().getTitle().equals(title)) {
+            	return current.getData();
+        	}
+        	current = current.getNext();
+    	}
+    	return null;
 	}
+
+	public void filterByCategory(String category){
+		ReportNode current = head;
+		boolean found = false;
+		while (current != null){
+			if (current.getData().getCategory().equals(category)){
+				System.out.println(current.getData());
+				found = true;
+			}
+			current = current.getNext();
+		}
+        if (!found) System.out.println("No reports found for category: " + category);
+	}
+	public void filterByTag(String tag) {
+        ReportNode current = head;
+        boolean found = false;
+        while (current != null) {
+            for (String t : current.getData().getTags()) {
+                if (t.equals(tag)) {
+                    System.out.println(current.getData());
+                    found = true;
+                    break;
+                }
+            }
+            current = current.getNext();
+        }
+        if (!found) System.out.println("No reports found for tag: " + tag);
+    }
+
+
+    public void filterByAuthor(String author) {
+        ReportNode current = head;
+        boolean found = false;
+        while (current != null) {
+            if (current.getData().getAuthor().equals(author)) {
+                System.out.println(current.getData());
+                found = true;
+            }
+            current = current.getNext();
+        }
+        if (!found) System.out.println("No reports found for author: " + author);
+    }
 	
 	public ReportNode getHead() {
 		return head;
 	}
 	
-	public int size(ReportNode head) {
-		int count = 0;
-		while (head.getData() != null) {
-			count++;
-			head = head.getNext();
-		}
-		
-		return count;
+	public int size() {
+    	return size;
 	}
 
 }
