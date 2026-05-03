@@ -1,3 +1,5 @@
+//**
+// SLL - Node class with a methods to access data of type Report and to create the lists and set next pointers */
 public class ReportNode {
     private Report data;
     private ReportNode next;
@@ -18,7 +20,6 @@ public class ReportNode {
     public ReportNode getNext() {
         return this.next;
     }
-
 
     public void setNext(ReportNode next) {
         this.next = next;

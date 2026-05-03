@@ -1,10 +1,8 @@
-/**
- * SLL
- */
+//**
+// SSL which manipulates the archives for search using  */
 public class ReportList {
 	private ReportNode head;
 	private int size;
-	
 	
 	public void addFront(Report r) {
 		ReportNode newNode = new ReportNode(r);
@@ -63,7 +61,6 @@ public class ReportList {
         }
         if (!found) System.out.println("No reports found for tag: " + tag);
     }
-
 
     public void filterByAuthor(String author) {
         ReportNode current = head;

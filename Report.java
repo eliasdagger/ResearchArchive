@@ -1,3 +1,5 @@
+//**
+// Report object - holds information */
 public class Report {
 	private String title;
 	private String author;
