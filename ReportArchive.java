@@ -90,7 +90,6 @@ public class ReportArchive{
         sb.append("    \"date\": \"" + r.getDate() + "\",\n");
         sb.append("    \"excerpt\": \"" + r.getExcerpt() + "\",\n");
         sb.append("    \"readTime\": " + r.getReadTimeMinutes() + ",\n");
-        // tags array
         sb.append("    \"tags\": [");
         String[] tags = r.getTags();
         for (int i = 0; i < tags.length; i++) {
