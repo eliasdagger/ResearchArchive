@@ -100,5 +100,4 @@ public class ReportArchive{
         sb.append("  },\n");
         buildJSON(node.getLeft(), sb);
     }
-
 }
