@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports — Dagher Capital</title>
+  <link rel="preload" as="image" href="Dagher__White_Transparent_.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a; --white: #f5f4f0; --gold: #b8963e;
+      --gold-light: #d4af6a; --gold-dim: rgba(184,150,62,0.15);
+      --mid: #1a1a1a; --border: rgba(184,150,62,0.25); --text-muted: #888;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 28px 60px; background: rgba(10,10,10,0.97); border-bottom: 1px solid rgba(184,150,62,0.2); backdrop-filter: blur(2px); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--white); text-decoration: none; display: flex; align-items: center; }
+    .nav-logo img { height: 20px; width: auto; position: relative; bottom: 3px; margin-right: 10px; }
+    .nav-logo span { color: var(--gold); letter-spacing: 1px; }
+    .nav-back { color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 400; transition: color 0.2s; display: flex; align-items: center; gap: 8px; }
+    .nav-back:hover { color: var(--gold-light); }
+    .nav-back::before { content: '←'; font-size: 14px; }
+
+    /* PAGE HERO */
+    .page-hero { padding: 140px 60px 60px; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(184,150,62,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,62,0.03) 1px, transparent 1px); background-size: 80px 80px; }
+    .page-hero::after { content: 'ARCHIVE'; position: absolute; right: 40px; bottom: -30px; font-family: 'Cormorant Garamond', serif; font-size: 180px; font-weight: 300; color: rgba(255,255,255,0.02); letter-spacing: 20px; pointer-events: none; line-height: 1; }
+    .hero-inner { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 30px; }
+    .hero-left { }
+    .page-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; font-weight: 500; display: flex; align-items: center; gap: 14px; }
+    .page-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+    .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 5vw, 72px); font-weight: 300; line-height: 1.05; }
+    .page-title em { font-style: italic; color: var(--gold-light); }
+    .report-count { font-family: 'Cormorant Garamond', serif; font-size: 72px; font-weight: 300; color: rgba(255,255,255,0.06); line-height: 1; }
+    .report-count span { font-size: 14px; font-family: 'Montserrat', sans-serif; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; display: block; margin-top: -10px; }
+
+    /* CONTROLS */
+    .controls { padding: 32px 60px; background: var(--mid); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; position: sticky; top: 77px; z-index: 50; }
+    .filter-group { display: flex; gap: 0; }
+    .filter-btn { padding: 9px 18px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border: 1px solid var(--border); border-right: none; font-weight: 500; background: transparent; color: var(--text-muted); transition: background 0.2s, color 0.2s; font-family: 'Montserrat', sans-serif; }
+    .filter-btn:last-child { border-right: 1px solid var(--border); }
+    .filter-btn.active, .filter-btn:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+    .search-wrap { position: relative; }
+    .search-input { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 10px 18px 10px 36px; color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 12px; outline: none; transition: border-color 0.3s; width: 260px; }
+    .search-input:focus { border-color: var(--gold); }
+    .search-input::placeholder { color: var(--text-muted); }
+    .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 12px; }
+    .sort-select { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 10px 14px; color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 11px; outline: none; cursor: pointer; letter-spacing: 1px; }
+    .sort-select option { background: var(--black); }
+
+    /* STATS ROW */
+    .stats-row { display: grid; grid-template-columns: repeat(4,1fr); border-bottom: 1px solid var(--border); }
+    .stat-cell { padding: 24px 60px; border-right: 1px solid var(--border); }
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+    .stat-cell-val { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--gold-light); }
+
+    /* MAIN CONTENT */
+    .main { padding: 0 60px 80px; }
+
+    /* SECTION HEADERS */
+    .section-header { display: flex; align-items: center; gap: 16px; padding: 48px 0 24px; border-bottom: 1px solid var(--border); margin-bottom: 1px; }
+    .section-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+    .section-count { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; }
+
+    /* REPORT CARDS GRID */
+    .cards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); margin-bottom: 1px; }
+    .report-card { background: var(--black); padding: 36px 32px; cursor: pointer; transition: background 0.3s; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+    .report-card:hover { background: #0f0f0f; }
+    .report-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+    .report-card:hover::after { transform: scaleX(1); }
+
+    .rc-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+    .rc-category { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+    .rc-date { font-size: 10px; color: var(--text-muted); letter-spacing: 1px; }
+    .rc-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; line-height: 1.3; margin-bottom: 14px; flex: 1; }
+    .rc-excerpt { font-size: 11px; color: var(--text-muted); line-height: 1.9; margin-bottom: 20px; flex: 1; }
+    .rc-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px; margin-top: auto; }
+    .rc-author { font-size: 10px; letter-spacing: 1px; font-weight: 400; }
+    .rc-read { font-size: 9px; color: var(--text-muted); letter-spacing: 1px; }
+    .rc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .rc-tag { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); background: var(--gold-dim); padding: 3px 8px; border: 1px solid rgba(184,150,62,0.2); }
+
+    /* EMPTY STATE */
+    .empty-state { padding: 80px 60px; text-align: center; color: var(--text-muted); }
+    .empty-state p { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; margin-bottom: 12px; }
+    .empty-state span { font-size: 12px; letter-spacing: 2px; }
+
+    /* FOOTER */
+    footer { background: var(--black); border-top: 1px solid var(--border); padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 10px; color: var(--text-muted); letter-spacing: 1px; }
+    footer .disclaimer { font-size: 9px; color: rgba(136,136,136,0.5); max-width: 400px; text-align: right; line-height: 1.8; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .report-card { animation: fadeUp 0.5s ease forwards; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <img src="Dagher__White_Transparent_.png" alt="Dagher" />
+      <span>CAPITAL</span>
+    </a>
+    <a class="nav-back" href="index.html">Home</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="page-eyebrow">Research Database</div>
+        <h1 class="page-title">All <em>Reports</em></h1>
+      </div>
+      <div class="report-count" id="total-count">0<span>Reports Published</span></div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row" id="stats-row">
+    <div class="stat-cell"><div class="stat-cell-label">Macro</div><div class="stat-cell-val" id="count-macro">0</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">Investments</div><div class="stat-cell-val" id="count-investments">0</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">Consulting</div><div class="stat-cell-val" id="count-consulting">0</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">Avg Read Time</div><div class="stat-cell-val" id="count-readtime">0<span style="font-size:16px;color:var(--text-muted)"> min</span></div></div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <div class="filter-group" id="filter-btns">
+      <button class="filter-btn active" onclick="setFilter('All', this)">All</button>
+      <button class="filter-btn" onclick="setFilter('Macro', this)">Macro</button>
+      <button class="filter-btn" onclick="setFilter('Investments', this)">Investments</button>
+      <button class="filter-btn" onclick="setFilter('Consulting', this)">Consulting</button>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input class="search-input" type="text" id="search-input" placeholder="Search by title, author, tag..." oninput="applyFilters()" />
+      </div>
+      <select class="sort-select" id="sort-select" onchange="applyFilters()">
+        <option value="date-desc">Newest First</option>
+        <option value="date-asc">Oldest First</option>
+        <option value="author">By Author</option>
+        <option value="readtime">By Read Time</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main" id="main-content"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Dagher Capital. All rights reserved.</p>
+    <p class="disclaimer">All research is for informational purposes only and does not constitute investment advice.</p>
+  </footer>
+
+  <script>
+    let allReports = [];
+    let activeFilter = 'All';
+
+    // Load JSON produced by Java ReportArchive
+    fetch('reports.json')
+      .then(res => res.json())
+      .then(data => {
+        allReports = data;
+        updateStats();
+        applyFilters();
+      })
+      .catch(err => {
+        document.getElementById('main-content').innerHTML = `
+          <div class="empty-state">
+            <p>Could not load reports</p>
+            <span>Make sure reports.json is in the same folder as this file</span>
+          </div>`;
+      });
+
+    function updateStats() {
+      const total = allReports.length;
+      document.getElementById('total-count').innerHTML = total + '<span>Reports Published</span>';
+      document.getElementById('count-macro').textContent = allReports.filter(r => r.category === 'Macro').length;
+      document.getElementById('count-investments').textContent = allReports.filter(r => r.category === 'Investments').length;
+      document.getElementById('count-consulting').textContent = allReports.filter(r => r.category === 'Consulting').length;
+      const avgRead = total > 0 ? Math.round(allReports.reduce((s, r) => s + r.readTime, 0) / total) : 0;
+      document.getElementById('count-readtime').innerHTML = avgRead + '<span style="font-size:16px;color:var(--text-muted)"> min</span>';
+    }
+
+    function setFilter(cat, btn) {
+      activeFilter = cat;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const query = document.getElementById('search-input').value.toLowerCase().trim();
+      const sort = document.getElementById('sort-select').value;
+
+      let filtered = allReports.filter(r => {
+        const matchCat = activeFilter === 'All' || r.category === activeFilter;
+        const matchSearch = !query ||
+          r.title.toLowerCase().includes(query) ||
+          r.author.toLowerCase().includes(query) ||
+          r.tags.some(t => t.toLowerCase().includes(query)) ||
+          r.excerpt.toLowerCase().includes(query);
+        return matchCat && matchSearch;
+      });
+
+      // sort
+      filtered.sort((a, b) => {
+        if (sort === 'date-desc') return b.date.localeCompare(a.date);
+        if (sort === 'date-asc') return a.date.localeCompare(b.date);
+        if (sort === 'author') return a.author.localeCompare(b.author);
+        if (sort === 'readtime') return a.readTime - b.readTime;
+        return 0;
+      });
+
+      renderReports(filtered);
+    }
+
+    function renderReports(reports) {
+      const container = document.getElementById('main-content');
+
+      if (reports.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <p>No reports found</p>
+            <span>Try adjusting your search or filter</span>
+          </div>`;
+        return;
+      }
+
+      // group by category in the order they appear
+      const categories = [];
+      const grouped = {};
+      reports.forEach(r => {
+        if (!grouped[r.category]) {
+          grouped[r.category] = [];
+          categories.push(r.category);
+        }
+        grouped[r.category].push(r);
+      });
+
+      // if filtering by one category, don't show section headers
+      const showHeaders = activeFilter === 'All' && !document.getElementById('search-input').value;
+
+      let html = '';
+      categories.forEach(cat => {
+        if (showHeaders) {
+          html += `
+            <div class="section-header">
+              <span class="section-label">${cat}</span>
+              <div class="section-line"></div>
+              <span class="section-count">${grouped[cat].length} report${grouped[cat].length !== 1 ? 's' : ''}</span>
+            </div>`;
+        }
+        html += '<div class="cards-grid">';
+        grouped[cat].forEach(r => {
+          const tags = r.tags.map(t => `<span class="rc-tag">${t}</span>`).join('');
+          const dateFormatted = new Date(r.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+          html += `
+            <div class="report-card">
+              <div class="rc-top">
+                <span class="rc-category">${r.category}</span>
+                <span class="rc-date">${dateFormatted}</span>
+              </div>
+              <div class="rc-title">${r.title}</div>
+              <div class="rc-tags">${tags}</div>
+              <div class="rc-excerpt">${r.excerpt}</div>
+              <div class="rc-bottom">
+                <span class="rc-author">${r.author}</span>
+                <span class="rc-read">${r.readTime} min read</span>
+              </div>
+            </div>`;
+        });
+        html += '</div>';
+      });
+
+      container.innerHTML = html;
+    }
+  </script>
+</body>
+</html>

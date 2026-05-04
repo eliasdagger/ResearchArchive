@@ -1,0 +1,75 @@
+[
+  {
+    "title": "The Strait of Hormuz: The World's Most Important Chokepoint",
+    "author": "James Dagher",
+    "category": "Macro",
+    "date": "2026-04-18",
+    "excerpt": "Roughly 20% of the world's oil supply passes through a 33km channel between Iran and Oman every day.",
+    "readTime": 8,
+    "tags": ["Oil", "Geopolitics", "Energy"]
+  },
+  {
+    "title": "The Fed's Impossible Dilemma: Cut Too Soon or Wait Too Long?",
+    "author": "Sara Khoury",
+    "category": "Macro",
+    "date": "2026-04-12",
+    "excerpt": "With inflation sticky above target and the labour market resilient, the Fed faces a genuine fork in the road.",
+    "readTime": 6,
+    "tags": ["Rates", "Inflation", "Fed"]
+  },
+  {
+    "title": "NVIDIA — Strong Buy",
+    "author": "James Dagher",
+    "category": "Investments",
+    "date": "2026-04-10",
+    "excerpt": "NVIDIA's data center dominance accelerates as hyperscalers expand AI infrastructure spending.",
+    "readTime": 7,
+    "tags": ["Tech", "Semiconductors", "AI"]
+  },
+  {
+    "title": "BlackRock — Buy",
+    "author": "Sara Khoury",
+    "category": "Investments",
+    "date": "2026-03-28",
+    "excerpt": "BlackRock's private markets expansion and GIP integration positions the firm for outsized fee growth.",
+    "readTime": 6,
+    "tags": ["Financials", "Asset Management"]
+  },
+  {
+    "title": "OPEC+ Discipline is Cracking — What Comes Next for Oil",
+    "author": "Sara Khoury",
+    "category": "Macro",
+    "date": "2026-03-22",
+    "excerpt": "Saudi Arabia is increasingly frustrated with members cheating on quotas.",
+    "readTime": 5,
+    "tags": ["Oil", "Energy", "OPEC"]
+  },
+  {
+    "title": "Pricing Strategy Overhaul for a B2B SaaS Company",
+    "author": "Michael Azar",
+    "category": "Consulting",
+    "date": "2026-03-15",
+    "excerpt": "A mid-market SaaS firm experiencing high churn despite strong acquisition metrics.",
+    "readTime": 4,
+    "tags": ["SaaS", "Strategy", "Pricing"]
+  },
+  {
+    "title": "Amazon — Buy",
+    "author": "Michael Azar",
+    "category": "Investments",
+    "date": "2026-03-10",
+    "excerpt": "AWS re-acceleration combined with improving retail margins creates a powerful earnings inflection story.",
+    "readTime": 6,
+    "tags": ["Tech", "E-Commerce", "Cloud"]
+  },
+  {
+    "title": "Dollar Dominance: How Much Longer Can It Last?",
+    "author": "Lena Nader",
+    "category": "Macro",
+    "date": "2026-03-05",
+    "excerpt": "The BRICS nations are actively building alternatives to SWIFT and dollar settlement.",
+    "readTime": 7,
+    "tags": ["FX", "USD", "Geopolitics"]
+  }
+
+]
