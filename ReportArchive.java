@@ -228,6 +228,7 @@ public class ReportArchive{
             "The BRICS nations are actively building alternatives to SWIFT and dollar settlement.",
             7
         ));
+        
 
         // --- EXPORT TO JSON ---
         archive.exportToJSON();

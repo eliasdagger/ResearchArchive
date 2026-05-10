@@ -129,6 +129,7 @@
     <div class="stat-cell"><div class="stat-cell-label">Macro</div><div class="stat-cell-val" id="count-macro">0</div></div>
     <div class="stat-cell"><div class="stat-cell-label">Investments</div><div class="stat-cell-val" id="count-investments">0</div></div>
     <div class="stat-cell"><div class="stat-cell-label">Consulting</div><div class="stat-cell-val" id="count-consulting">0</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">Science</div><div class="stat-cell-val" id="count-science">0</div></div>
     <div class="stat-cell"><div class="stat-cell-label">Avg Read Time</div><div class="stat-cell-val" id="count-readtime">0<span style="font-size:16px;color:var(--text-muted)"> min</span></div></div>
   </div>
 
@@ -139,6 +140,7 @@
       <button class="filter-btn" onclick="setFilter('Macro', this)">Macro</button>
       <button class="filter-btn" onclick="setFilter('Investments', this)">Investments</button>
       <button class="filter-btn" onclick="setFilter('Consulting', this)">Consulting</button>
+      <button class="filter-btn" onclick="setFilter('Science', this)">Science</button>
     </div>
     <div style="display:flex;gap:12px;align-items:center">
       <div class="search-wrap">
@@ -189,6 +191,7 @@
       document.getElementById('count-macro').textContent = allReports.filter(r => r.category === 'Macro').length;
       document.getElementById('count-investments').textContent = allReports.filter(r => r.category === 'Investments').length;
       document.getElementById('count-consulting').textContent = allReports.filter(r => r.category === 'Consulting').length;
+      document.getElementById('count-science').textContent = allReports.filter(r => r.category === 'Science').length;
       const avgRead = total > 0 ? Math.round(allReports.reduce((s, r) => s + r.readTime, 0) / total) : 0;
       document.getElementById('count-readtime').innerHTML = avgRead + '<span style="font-size:16px;color:var(--text-muted)"> min</span>';
     }
